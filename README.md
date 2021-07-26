@@ -27,5 +27,10 @@
 ### PRÉ REQUISITOS PARA RODAR ESSE PROJETO
 
 - É necessário criar um database `cryptoGO` no seu Postgresql.
+- Além disso, usuário e senha devem estar de acordo com o do banco Postgresql.
+ ```properties
+  spring.datasource.username=SEU_USUARIO
+  spring.datasource.password=SUA_SENHA
+ ```
 
 # EM CONSTRUÇÃO...
