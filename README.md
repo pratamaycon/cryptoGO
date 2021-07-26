@@ -26,6 +26,6 @@
 
 ### PRÉ REQUISITOS PARA RODAR ESSE PROJETO
 
-- É necessário criar um database com um mesmo na aplicação `cryptoGO`
+- É necessário criar um database com um mesmo na aplicação `cryptoGO` no seu Postgresql.
 
 # EM CONSTRUÇÃO...
