@@ -13,6 +13,7 @@
 - SPRING BOOT 2.5.3
 - MAVEN 3.6.1
 - IDE ECLIPSE
+- POSTGRESQL
 
 ### Descrição da Tarefa
 
@@ -22,5 +23,9 @@
 - A implementação das classes de entidades com JPA (código JAVA).
   
 </p>
+
+### PRÉ REQUISITOS PARA RODAR ESSE PROJETO
+
+- É necessário criar um database com um mesmo na aplicação `cryptoGO`
 
 # EM CONSTRUÇÃO...
