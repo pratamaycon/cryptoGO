@@ -65,6 +65,22 @@ public class CriptoThresholdUsuario {
 		this.data_atualizacao = data_atualizacao;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public CriptoTipos getCriptoTipos() {
+		return criptoTipos;
+	}
+
+	public void setCriptoTipos(CriptoTipos criptoTipos) {
+		this.criptoTipos = criptoTipos;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

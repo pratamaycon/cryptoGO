@@ -11,8 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name = "cripto_transactions")
 public class CriptoTransactions {
@@ -59,6 +57,14 @@ public class CriptoTransactions {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
+	}
+
+	public CriptoTipos getCriptoTipos() {
+		return criptoTipos;
+	}
+
+	public void setCriptoTipos(CriptoTipos criptoTipos) {
+		this.criptoTipos = criptoTipos;
 	}
 
 	@Override
