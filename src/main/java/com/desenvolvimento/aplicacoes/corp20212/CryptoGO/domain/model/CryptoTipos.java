@@ -1,9 +1,11 @@
-package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.model;
+package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.model;
 
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,9 +13,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 @Table(name = "cripto_tipos")
-public class CriptoTipos {
+public class CryptoTipos {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +25,12 @@ public class CriptoTipos {
 
 	private String nome;
 
-	private LocalDate dataCadastro;
+	@CreationTimestamp
+	@Column(nullable = false, columnDefinition = "datetime")
+	private OffsetDateTime dataCadastro;
 
 	@OneToMany(mappedBy = "criptoTipos", cascade = CascadeType.ALL)
-	private List<CriptoTransactions> criptoTransactions;
+	private List<CryptoTransactions> criptoTransactions;
 
 	public Long getId() {
 		return id;
@@ -42,19 +48,19 @@ public class CriptoTipos {
 		this.nome = nome;
 	}
 
-	public LocalDate getDataCadastro() {
+	public OffsetDateTime getDataCadastro() {
 		return dataCadastro;
 	}
 
-	public void setDataCadastro(LocalDate dataCadastro) {
+	public void setDataCadastro(OffsetDateTime dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
 
-	public List<CriptoTransactions> getCriptoTransactions() {
+	public List<CryptoTransactions> getCriptoTransactions() {
 		return criptoTransactions;
 	}
 
-	public void setCriptoTransactions(List<CriptoTransactions> criptoTransactions) {
+	public void setCriptoTransactions(List<CryptoTransactions> criptoTransactions) {
 		this.criptoTransactions = criptoTransactions;
 	}
 
@@ -74,7 +80,7 @@ public class CriptoTipos {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CriptoTipos other = (CriptoTipos) obj;
+		CryptoTipos other = (CryptoTipos) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

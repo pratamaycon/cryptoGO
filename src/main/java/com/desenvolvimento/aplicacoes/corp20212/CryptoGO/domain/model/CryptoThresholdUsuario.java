@@ -1,4 +1,4 @@
-package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.model;
+package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "cripto_threshold_usuario")
-public class CriptoThresholdUsuario {
+public class CryptoThresholdUsuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +31,7 @@ public class CriptoThresholdUsuario {
 
 	@ManyToOne
 	@JoinColumn(name = "id_cripto_tipos")
-	private CriptoTipos criptoTipos;
+	private CryptoTipos criptoTipos;
 
 	public Long getId() {
 		return id;
@@ -73,11 +73,11 @@ public class CriptoThresholdUsuario {
 		this.usuario = usuario;
 	}
 
-	public CriptoTipos getCriptoTipos() {
+	public CryptoTipos getCriptoTipos() {
 		return criptoTipos;
 	}
 
-	public void setCriptoTipos(CriptoTipos criptoTipos) {
+	public void setCriptoTipos(CryptoTipos criptoTipos) {
 		this.criptoTipos = criptoTipos;
 	}
 
@@ -97,7 +97,7 @@ public class CriptoThresholdUsuario {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CriptoThresholdUsuario other = (CriptoThresholdUsuario) obj;
+		CryptoThresholdUsuario other = (CryptoThresholdUsuario) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

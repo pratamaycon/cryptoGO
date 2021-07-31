@@ -1,4 +1,4 @@
-package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.model;
+package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

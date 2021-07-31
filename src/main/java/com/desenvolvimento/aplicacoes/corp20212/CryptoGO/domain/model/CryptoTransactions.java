@@ -1,4 +1,4 @@
-package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.model;
+package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "cripto_transactions")
-public class CriptoTransactions {
+public class CryptoTransactions {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class CriptoTransactions {
 
 	@ManyToOne
 	@JoinColumn(name = "id_cripto_tipos")
-	private CriptoTipos criptoTipos;
+	private CryptoTipos criptoTipos;
 
 	public Long getId() {
 		return id;
@@ -59,11 +59,11 @@ public class CriptoTransactions {
 		return result;
 	}
 
-	public CriptoTipos getCriptoTipos() {
+	public CryptoTipos getCriptoTipos() {
 		return criptoTipos;
 	}
 
-	public void setCriptoTipos(CriptoTipos criptoTipos) {
+	public void setCriptoTipos(CryptoTipos criptoTipos) {
 		this.criptoTipos = criptoTipos;
 	}
 
@@ -75,7 +75,7 @@ public class CriptoTransactions {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CriptoTransactions other = (CriptoTransactions) obj;
+		CryptoTransactions other = (CryptoTransactions) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
