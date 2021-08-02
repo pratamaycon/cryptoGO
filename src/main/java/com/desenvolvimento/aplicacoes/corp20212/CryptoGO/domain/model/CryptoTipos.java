@@ -1,9 +1,10 @@
-package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.model;
+package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.model;
 
 import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,27 +12,34 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "cripto_tipos")
-public class CriptoTipos {
+public class CryptoTipos {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long codigo;
 
 	private String nome;
 
+	@CreationTimestamp
+	@Column(nullable = false)
 	private LocalDate dataCadastro;
 
-	@OneToMany(mappedBy = "criptoTipos", cascade = CascadeType.ALL)
-	private List<CriptoTransactions> criptoTransactions;
+	@JsonIgnoreProperties("criptoTipos")
+	@OneToMany(mappedBy = "criptoTipos", cascade = CascadeType.ALL, orphanRemoval=true)
+	private List<CryptoTransactions> criptoTransactions;
 
-	public Long getId() {
-		return id;
+	public Long getCodigo() {
+		return codigo;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getNome() {
@@ -50,11 +58,11 @@ public class CriptoTipos {
 		this.dataCadastro = dataCadastro;
 	}
 
-	public List<CriptoTransactions> getCriptoTransactions() {
+	public List<CryptoTransactions> getCriptoTransactions() {
 		return criptoTransactions;
 	}
 
-	public void setCriptoTransactions(List<CriptoTransactions> criptoTransactions) {
+	public void setCriptoTransactions(List<CryptoTransactions> criptoTransactions) {
 		this.criptoTransactions = criptoTransactions;
 	}
 
@@ -62,7 +70,7 @@ public class CriptoTipos {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
 
@@ -74,12 +82,12 @@ public class CriptoTipos {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CriptoTipos other = (CriptoTipos) obj;
-		if (id == null) {
-			if (other.id != null)
+		CryptoTipos other = (CryptoTipos) obj;
+		if (codigo == null) {
+			if (other.codigo != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
-	}
+	}	
 }
