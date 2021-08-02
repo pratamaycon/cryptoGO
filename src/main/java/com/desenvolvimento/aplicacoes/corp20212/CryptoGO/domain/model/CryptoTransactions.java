@@ -17,22 +17,22 @@ public class CryptoTransactions {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long codigo;
 
 	private LocalDate data;
 
-	private BigDecimal valor_corrente;
+	private BigDecimal valorCorrente;
 
 	@ManyToOne
-	@JoinColumn(name = "id_cripto_tipos")
+	@JoinColumn(name = "id_crypto_tipos")
 	private CryptoTipos criptoTipos;
 
-	public Long getId() {
-		return id;
+	public Long getCodigo() {
+		return codigo;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 
 	public LocalDate getData() {
@@ -43,20 +43,12 @@ public class CryptoTransactions {
 		this.data = data;
 	}
 
-	public BigDecimal getValor_corrente() {
-		return valor_corrente;
+	public BigDecimal getValorCorrente() {
+		return valorCorrente;
 	}
 
-	public void setValor_corrente(BigDecimal valor_corrente) {
-		this.valor_corrente = valor_corrente;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
+	public void setValorCorrente(BigDecimal valorCorrente) {
+		this.valorCorrente = valorCorrente;
 	}
 
 	public CryptoTipos getCriptoTipos() {
@@ -68,6 +60,14 @@ public class CryptoTransactions {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -76,11 +76,12 @@ public class CryptoTransactions {
 		if (getClass() != obj.getClass())
 			return false;
 		CryptoTransactions other = (CryptoTransactions) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (codigo == null) {
+			if (other.codigo != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
 	}
+	
 }

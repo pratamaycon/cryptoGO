@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.desenvolvimento.aplicacoes.corp20212</groupId>
 	<artifactId>CryptoGO</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>CryptoGO</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -36,6 +36,17 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>5.4.17.Final</version>
+		</dependency>
+		
+		<!-- Hibernate Java 8 Suport -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-java8</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
 		</dependency>
 
 		<dependency>
