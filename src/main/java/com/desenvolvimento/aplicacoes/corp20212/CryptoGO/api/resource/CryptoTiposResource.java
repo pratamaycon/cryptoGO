@@ -3,7 +3,6 @@ package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.api.resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,25 +26,23 @@ public class CryptoTiposResource {
 	@Autowired
 	private CryptoTipoService service;
 
-	@GetMapping(value = { "v1/crypto" }, produces = { MediaType.APPLICATION_JSON_VALUE })
+	@GetMapping(value = { "v1/crypto" })
 	@ResponseStatus(HttpStatus.OK)
 	public Page<CryptoTipos> buscarTodos(@RequestParam("page") int page, @RequestParam("size") int size) {
 		return service.paginacao(page, size);
 	}
 	
-	@GetMapping(value = { "v1/crypto/{codigo}" }, produces = { MediaType.APPLICATION_JSON_VALUE })
+	@GetMapping(value = { "v1/crypto/{codigo}" })
 	public ResponseEntity<?> buscarPeloId(@PathVariable("codigo") Long codigo) {
 		CryptoTipos crypto = service.buscarOuFalhar(codigo);
-
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(crypto);			
 		} catch (EntidadeNaoEncontradaException e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
-		
 	}
 	
-	@PostMapping(value = { "v1/crypto" }, produces = { MediaType.APPLICATION_JSON_VALUE })
+	@PostMapping(value = { "v1/crypto" })
 	public ResponseEntity<CryptoTipos> criar(@RequestBody CryptoTipos crypto) {
 		CryptoTipos cryptoSalva = service.salvarCrypto(crypto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(cryptoSalva);
