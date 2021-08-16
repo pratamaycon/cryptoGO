@@ -30,14 +30,14 @@ public class CryptoTiposResource {
 	@Autowired
 	private CryptoTipoService service;
 
-	@GetMapping(value = { "v1/crypto" })
+	@GetMapping(value = { "v1/cryptos" })
 	@ResponseStatus(HttpStatus.OK)
 	@ApiOperation(value = "Retorna uma lista paginada com as crypto")
 	public Page<CryptoTipos> buscarTodos(@RequestParam("page") int page, @RequestParam("size") int size) {
 		return service.paginacao(page, size);
 	}
 	
-	@GetMapping(value = { "v1/crypto/{codigo}" })
+	@GetMapping(value = { "v1/cryptos/{codigo}" })
 	@ApiOperation(value = "Retorna uma crypto")
 	public ResponseEntity<?> buscarPeloId(@PathVariable("codigo") Long codigo) {
 		CryptoTipos crypto = service.buscarOuFalhar(codigo);
@@ -48,14 +48,14 @@ public class CryptoTiposResource {
 		}
 	}
 	
-	@PostMapping(value = { "v1/crypto" })
+	@PostMapping(value = { "v1/cryptos" })
 	@ApiOperation(value = "Salva uma crypto")
 	public ResponseEntity<CryptoTipos> criar(@RequestBody CryptoTipos crypto) {
 		CryptoTipos cryptoSalva = service.salvarCrypto(crypto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(cryptoSalva);
 	}
 	
-	@PutMapping(value = { "v1/crypto/{codigo}" })
+	@PutMapping(value = { "v1/cryptos/{codigo}" })
 	@ApiOperation(value = "Alterar uma crypto")
 	public ResponseEntity<CryptoTipos> atualizar(@RequestBody CryptoTipos crypto, @PathVariable("codigo") Long codigo) {
 		try {		
@@ -66,9 +66,9 @@ public class CryptoTiposResource {
 		}
 	}
 	
-	@DeleteMapping(value = { "v1/crypto/{codigo}" })
+	@DeleteMapping(value = { "v1/cryptos/{codigo}" })
 	@ApiOperation(value = "Deletar uma crypto")
-	public void removePessoa(@PathVariable Long codigo){	
+	public void remover(@PathVariable Long codigo){	
 			service.deletarCrypto(codigo);
 	}
 
