@@ -83,5 +83,4 @@ public class CryptoTransactions {
 			return false;
 		return true;
 	}
-	
 }

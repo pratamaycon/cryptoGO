@@ -3,6 +3,7 @@ package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,11 +26,11 @@ public class CryptoThresholdUsuario {
 
 	private LocalDate data_atualizacao;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(nullable = false, name = "id_usuario")
 	private Usuario usuario;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(nullable = false, name = "id_crypto_tipos")
 	private CryptoTipos criptoTipos;
 

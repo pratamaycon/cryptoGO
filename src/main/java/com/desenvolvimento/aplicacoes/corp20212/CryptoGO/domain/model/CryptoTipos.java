@@ -89,5 +89,5 @@ public class CryptoTipos {
 		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
-	}	
+	}
 }

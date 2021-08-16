@@ -41,7 +41,6 @@ public class UsuarioResource {
 	@GetMapping(value = { "v1/users" })
 	@ApiOperation(value = "Retorna uma lista de Usuários", response = Usuario[].class)
 	@ResponseStatus(HttpStatus.OK)
-	
 	public List<Usuario> buscarTodos() {
 		return repository.findAll();
 	}
@@ -84,7 +83,7 @@ public class UsuarioResource {
 		service.alterarSenha(codigo, senha.getSenhaAtual(), senha.getNovaSenha());
 	}
 	
-	@DeleteMapping(value = { "v1/crypto/{login}" })
+	@DeleteMapping(value = { "v1/users/{login}" })
 	@ApiOperation(value = "Deletar usuário pelo login")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void removePessoa(@PathVariable("login") String login){	
