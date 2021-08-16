@@ -83,10 +83,4 @@ public class CryptoTransactions {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "CryptoTransactions [codigo=" + codigo + ", data=" + data + ", valorCorrente=" + valorCorrente
-				+ ", criptoTipos=" + criptoTipos + "]";
-	}
 }

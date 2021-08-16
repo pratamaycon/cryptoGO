@@ -90,12 +90,4 @@ public class CryptoTipos {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "CryptoTipos [codigo=" + codigo + ", nome=" + nome + ", dataCadastro=" + dataCadastro
-				+ ", criptoTransactions=" + criptoTransactions + "]";
-	}	
-	
-	
 }

@@ -159,12 +159,4 @@ public class Usuario implements UserDetails {
 		// TODO Auto-generated method stub
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "Usuario [codigo=" + codigo + ", nome=" + nome + ", sobrenome=" + sobrenome + ", login=" + login
-				+ ", senha=" + senha + ", email=" + email + "]";
-	}
-	
-	
 }

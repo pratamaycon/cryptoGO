@@ -40,9 +40,9 @@ public class CryptoThresholdResource {
 	@GetMapping(value = { "v1/cryptosThresholds/{codigo}" })
 	@ApiOperation(value = "Retorna uma CryptoThresholds")
 	public ResponseEntity<?> buscarPeloId(@PathVariable("codigo") Long codigo) {
-		CryptoThresholdUsuario crypto = service.buscarOuFalhar(codigo);
+		CryptoThresholdUsuario cryptoThresholds = service.buscarOuFalhar(codigo);
 		try {
-			return ResponseEntity.status(HttpStatus.OK).body(crypto);
+			return ResponseEntity.status(HttpStatus.OK).body(cryptoThresholds);
 		} catch (EntidadeNaoEncontradaException e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}

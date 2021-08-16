@@ -5,7 +5,6 @@ import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,11 +26,11 @@ public class CryptoThresholdUsuario {
 
 	private LocalDate data_atualizacao;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(nullable = false, name = "id_usuario")
 	private Usuario usuario;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(nullable = false, name = "id_crypto_tipos")
 	private CryptoTipos criptoTipos;
 
@@ -107,13 +106,4 @@ public class CryptoThresholdUsuario {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "CryptoThresholdUsuario [codigo=" + codigo + ", threshold_minimo=" + threshold_minimo
-				+ ", threshold_maximo=" + threshold_maximo + ", data_atualizacao=" + data_atualizacao + ", usuario="
-				+ usuario + ", criptoTipos=" + criptoTipos + "]";
-	}
-	
-	
 }

@@ -45,14 +45,12 @@ public class CryptoThresholdService {
 		CryptoThresholdUsuario cryptoThresholdBuscada = buscarOuFalhar(codigo);
 		
 		cryptoThresholdBuscada.getCriptoTipos().getCriptoTransactions().clear();
-		cryptoThresholdBuscada.getCriptoTipos().getCriptoTransactions().addAll(cryptoThresholdBuscada.getCriptoTipos().getCriptoTransactions());
+		cryptoThresholdBuscada.getCriptoTipos().getCriptoTransactions().addAll(cryptoThreshold.getCriptoTipos().getCriptoTransactions());
 		cryptoThresholdBuscada.getCriptoTipos().getCriptoTransactions().forEach( 
-				criptoTransactions -> criptoTransactions.setCriptoTipos(cryptoThresholdBuscada.getCriptoTipos()));
+				criptoTransactions -> criptoTransactions.setCriptoTipos(cryptoThreshold.getCriptoTipos()));
 		
 		BeanUtils.copyProperties(cryptoThreshold, cryptoThresholdBuscada, "codigo", "senha");
-		
 		System.out.println(cryptoThresholdBuscada);
-		
 		return repository.save(cryptoThresholdBuscada);
 	}
 	
