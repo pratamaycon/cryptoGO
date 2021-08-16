@@ -19,8 +19,12 @@ import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.exception.Entida
 import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.model.CryptoTipos;
 import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.service.CryptoTipoService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/api/")
+@Api(value = "Resource CryptoTipos")
 public class CryptoTiposResource {
 
 	@Autowired
@@ -28,11 +32,13 @@ public class CryptoTiposResource {
 
 	@GetMapping(value = { "v1/crypto" })
 	@ResponseStatus(HttpStatus.OK)
+	@ApiOperation(value = "Retorna uma lista paginada com as crypto")
 	public Page<CryptoTipos> buscarTodos(@RequestParam("page") int page, @RequestParam("size") int size) {
 		return service.paginacao(page, size);
 	}
 	
 	@GetMapping(value = { "v1/crypto/{codigo}" })
+	@ApiOperation(value = "Retorna uma crypto")
 	public ResponseEntity<?> buscarPeloId(@PathVariable("codigo") Long codigo) {
 		CryptoTipos crypto = service.buscarOuFalhar(codigo);
 		try {
@@ -43,12 +49,14 @@ public class CryptoTiposResource {
 	}
 	
 	@PostMapping(value = { "v1/crypto" })
+	@ApiOperation(value = "Salva uma crypto")
 	public ResponseEntity<CryptoTipos> criar(@RequestBody CryptoTipos crypto) {
 		CryptoTipos cryptoSalva = service.salvarCrypto(crypto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(cryptoSalva);
 	}
 	
 	@PutMapping(value = { "v1/crypto/{codigo}" })
+	@ApiOperation(value = "Alterar uma crypto")
 	public ResponseEntity<CryptoTipos> atualizar(@RequestBody CryptoTipos crypto, @PathVariable("codigo") Long codigo) {
 		try {		
 			CryptoTipos cryptoAtualizada = service.atualizarCrypto(crypto, codigo);
@@ -59,6 +67,7 @@ public class CryptoTiposResource {
 	}
 	
 	@DeleteMapping(value = { "v1/crypto/{codigo}" })
+	@ApiOperation(value = "Deletar uma crypto")
 	public void removePessoa(@PathVariable Long codigo){	
 			service.deletarCrypto(codigo);
 	}

@@ -1,6 +1,5 @@
 package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.model;
 
-import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -118,13 +117,13 @@ public class Usuario implements UserDetails {
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return null;
+		return senha;
 	}
 
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return null;
+		return login;
 	}
 
 	@Override

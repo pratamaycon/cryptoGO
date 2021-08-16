@@ -46,14 +46,23 @@ public class UsuarioService {
 	}
 	
 	@Transactional
-	public void alterarSenha(String login, String senhaAtual, String novaSenha) {
-		Usuario usuario = buscarOuFalhar(login);
-		
-		if (!passwordEncoder.matches(senhaAtual, usuario.getSenha())) {
+	public void alterarSenha(Long codigo, String senhaAtual, String novaSenha) {
+		String senhaRemovebcrypt = "";
+		Usuario usuario = repository.findById(codigo)
+				.orElseThrow(() -> 
+				new EntidadeNaoEncontradaException(String.format(MSG_USUARIO_NAO_ENCONTRADO, codigo)));
+	
+		if (!senhaAtual.equals(novaSenha)) {
 			throw new NegocioException("Senha atual informada não coincide com a senha do usuário.");
-		}
+		} 
 		
-		usuario.setSenha(passwordEncoder.encode(novaSenha));
+		senhaRemovebcrypt = passwordEncoder.encode(novaSenha).replace("{bcrypt}", "");
+		usuario.setSenha(senhaRemovebcrypt);
+	}
+	
+	public void deletarUsuario(String login) {
+		Usuario usuario = buscarOuFalhar(login);
+		repository.delete(usuario);
 	}
 	
 	public Usuario buscarOuFalhar(String login) {
