@@ -41,7 +41,6 @@ public class UsuarioResource {
 	@GetMapping(value = { "v1/users" })
 	@ApiOperation(value = "Retorna uma lista de Usuários", response = Usuario[].class)
 	@ResponseStatus(HttpStatus.OK)
-	
 	public List<Usuario> buscarTodos() {
 		return repository.findAll();
 	}

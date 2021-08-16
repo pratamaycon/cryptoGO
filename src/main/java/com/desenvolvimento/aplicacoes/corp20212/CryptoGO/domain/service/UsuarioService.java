@@ -30,6 +30,7 @@ public class UsuarioService {
 
 	@Transactional
 	public Usuario salvar(Usuario usuario) {
+		String senhaRemovebcrypt = "";
 
 		Optional<Usuario> usuarioExistente = Optional.ofNullable(repository.findByLogin(usuario.getLogin()));
 		
@@ -39,7 +40,8 @@ public class UsuarioService {
 		}
 
 		if (usuario.isNovo()) {
-			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
+			senhaRemovebcrypt = passwordEncoder.encode(usuario.getSenha()).replace("{bcrypt}", "");
+			usuario.setSenha(senhaRemovebcrypt);
 		}
 
 		return repository.save(usuario);
