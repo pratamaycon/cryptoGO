@@ -1,0 +1,716 @@
+{
+	"info": {
+		"_postman_id": "73cb72c6-764a-4efd-beb2-eff259421a94",
+		"name": "CryptoGO Heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CryptoTipo",
+			"item": [
+				{
+					"name": "Cadastrar Crypto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiU3RldmVuIiwiZXhwIjoxNjI5MDkwMDM4LCJ1c2VyX25hbWUiOiJzdGVuIiwianRpIjoiY2ZhN2Y5YTgtN2I5YS00YWE4LTk5MWQtYzBmY2I2Yjg2N2ZlIiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.fbdeQh1y9Nurq596Vg45T1p_8r_K-N4MyeScNJbetz4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Ethereum\",\r\n    \"criptoTransactions\": [\r\n        {\r\n            \"data\": \"2020-01-20\",\r\n            \"valorCorrente\": 7\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/cryptos",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cryptos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Crypto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Ethereum\",\r\n    \"dataCadastro\": \"2025-08-02\",\r\n    \"criptoTransactions\": [\r\n        {\r\n            \"codigo\": 6,\r\n            \"data\": \"2025-01-28\",\r\n            \"valorCorrente\": 5.50\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/cryptos/3",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cryptos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar todas Crypto com paginação",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiU3RldmVuIiwiZXhwIjoxNjI5MTQ3NTA0LCJ1c2VyX25hbWUiOiJzdGVuIiwianRpIjoiYmMxNzQ5YmEtNjkxMS00N2I2LWE1ZDgtMWQ4M2IzYWJiMTc3IiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.SE1rxgMNXuQBzGVwgyt0tQu5ioXsFLsiKSmknxcH2VA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/cryptos?page=0&size=5",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cryptos"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Crypto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/cryptos/2",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cryptos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crypto Por Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiU3RldmVuIiwiZXhwIjoxNjI5MDg1MTAzLCJ1c2VyX25hbWUiOiJzdGVuIiwianRpIjoiMDU1NWM5ZGUtZjgxZS00YzM1LWExMWQtYzJiZTU0Mjg5M2QxIiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.R2y1lOWBIcXgnk9k-AxbmKQiEWGJWlUISw8CVZ-iBts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/cryptos/1",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cryptos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Buscar Todos",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/users",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario por Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiU3RldmVuIiwiZXhwIjoxNjI5MDY2MDgxLCJ1c2VyX25hbWUiOiJzdGVuIiwianRpIjoiMTZkZmZlOTEtMDMwNi00NWRiLTgzYjQtZjNiOWEyMjhmOWM4IiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.1D5nbYpAY8Hnx1VSrNzQDcvv2CDoK6Ok_T7s34IIwOA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/users/admin",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiU3RldmVuIiwiZXhwIjoxNjI5MDkwMjU3LCJ1c2VyX25hbWUiOiJzdGVuIiwianRpIjoiZjIwNjE5MTgtN2NjNS00MzQ1LTgyMTUtMzQyZmFkNDZmZGYyIiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.sgQDFVi-qH49PAUCZUGtqw66eZuZRGWr8BMDmTTAWSA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Asta\",\r\n    \"sobrenome\": \"Black Clover\",\r\n    \"login\": \"Demon\",\r\n    \"senha\": \"123\",\r\n    \"email\": \"asta@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/users",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiYWRtaW5pc3RyYWRvciIsImV4cCI6MTYyOTA1OTAwNywidXNlcl9uYW1lIjoiYWRtaW4iLCJqdGkiOiIyMTJlNDRkNS1lMTg5LTQwY2YtYTZjZi0wNGZmOGQ4NzA0NDYiLCJjbGllbnRfaWQiOiJjcnlwdG8iLCJzY29wZSI6WyJhbGwiXX0.2QAHF41PJUn7sclC4b320xVwV61RFCroMYFQ1zpl-QA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Steven\",\r\n    \"sobrenome\": \"Meireles\",\r\n    \"login\": \"sten\",\r\n    \"email\": \"stenAlves@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/users/sten",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"sten"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Senha",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiU3RldmVuIiwiZXhwIjoxNjI5MDY1NDUwLCJ1c2VyX25hbWUiOiJzdGVuIiwianRpIjoiZTkzMzI3YTMtYTk4ZS00NTBiLWFmNmYtM2FhMWU5ZmNjZjc2IiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.kF_6sVLI76wFnKlY3rjyULt0Er4BGmqEiirII926G98",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"senhaAtual\": \"123\",\r\n    \"novaSenha\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/users/3/senha",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"3",
+								"senha"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Usuário",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiU3RldmVuIiwiZXhwIjoxNjI5MTQ2ODMzLCJ1c2VyX25hbWUiOiJzdGVuIiwianRpIjoiZDlmYjJkZGUtMWQ4ZC00ZWQxLThkM2MtODQ4ODVkMWY1MjE0IiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.zz6q9ZHQmBh1D0YSOTNfthFGIoU2L_Frb42nJYurKJk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/users/Sukaku",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"Sukaku"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "Access Token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "crpt0G0",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "crypto",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client",
+									"value": "crypto",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/oauth/token",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiYWRtaW4iLCJleHAiOjE2MjkxNjk1NTcsInVzZXJfbmFtZSI6ImFkbWluIiwianRpIjoiN2U0YjljOTctNjg3MC00NjJkLWEyYWQtMTFiNTljNmJmOTMyIiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.t_HEnG8Pa1oSQ4OEkl_65_06w0Ge0g3A68rpo5H7uFs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/tokens/revoke",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tokens",
+								"revoke"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CryptoThreshold",
+			"item": [
+				{
+					"name": "Buscar Todas Crypto Threshold com paginação",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiU3RldmVuIiwiZXhwIjoxNjI5MDg1MTAzLCJ1c2VyX25hbWUiOiJzdGVuIiwianRpIjoiMDU1NWM5ZGUtZjgxZS00YzM1LWExMWQtYzJiZTU0Mjg5M2QxIiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.R2y1lOWBIcXgnk9k-AxbmKQiEWGJWlUISw8CVZ-iBts",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/cryptosThresholds?page=0&size=5",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cryptosThresholds"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crypto Threshold Por Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiU3RldmVuIiwiZXhwIjoxNjI5MTUwOTg0LCJ1c2VyX25hbWUiOiJzdGVuIiwianRpIjoiOWY1ZmJiYTAtZjY0My00MjJkLWI1YzctN2I4ODI2NjYxNzZhIiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.-E6tULGRDX7anju4zYmsBWt10nEAn7GLqzNbn4h2mzU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/cryptosThresholds/4",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cryptosThresholds",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Salvar Crypto Threshold",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiU3RldmVuIiwiZXhwIjoxNjI5MTM3OTIyLCJ1c2VyX25hbWUiOiJzdGVuIiwianRpIjoiYTg3MTE4YTMtYmMwNi00M2YxLWEzMDQtYzBiZDc0MTQyMGI5IiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.UKeVc2UEdtS1MrmPLRTgO61f_YRaTYOMviPQg_k3UHk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"threshold_minimo\": 1.0,\r\n    \"threshold_maximo\": 3.0,\r\n    \"data_atualizacao\": \"2021-08-17\",\r\n    \"usuario\": {\r\n        \"nome\": \"Naruto\",\r\n        \"login\": \"Kyubi\",\r\n        \"sobrenome\": \"Uzumaki\",\r\n        \"email\": \"hogake@email.com\"\r\n    },\r\n    \"criptoTipos\": {\r\n        \"nome\": \"Binance Coin\",\r\n        \"dataCadastro\": \"2021-08-16\",\r\n        \"criptoTransactions\": null\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/cryptosThresholds",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cryptosThresholds"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Crypto Threshold",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiU3RldmVuIiwiZXhwIjoxNjI5MTQ5MjYzLCJ1c2VyX25hbWUiOiJzdGVuIiwianRpIjoiODlmNjk0YWYtZjNhNC00ZTY0LWIzNGQtMDZmY2E5NWRmMGQyIiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.6jEnmKs8nYN68jGAoWJwKuwR1e5kaUM5aNjtSw2utwY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"threshold_minimo\": 350.00,\r\n    \"threshold_maximo\": 500.00,\r\n    \"data_atualizacao\": \"2021-08-17\",\r\n    \"usuario\": {\r\n        \"codigo\": 3,\r\n        \"nome\": \"Garra\",\r\n        \"login\": \"Sukaku\",\r\n        \"sobrenome\": \"Sukakuuuuuuu\",\r\n        \"email\": \"hogake@email.com\"\r\n    },\r\n    \"criptoTipos\": {\r\n        \"codigo\": 3,\r\n        \"nome\": \"Dogecoin\",\r\n        \"dataCadastro\": \"2021-08-25\",\r\n        \"criptoTransactions\": [\r\n            {\r\n                \"codigo\": 2,\r\n                \"data\": \"2021-02-20\",\r\n                \"valorCorrente\": 50\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/cryptosThresholds/14",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cryptosThresholds",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Crypto Threshold",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lIjoiU3RldmVuIiwiZXhwIjoxNjI5MTQwMzA1LCJ1c2VyX25hbWUiOiJzdGVuIiwianRpIjoiODE3NDkxNDctNzE1OS00ZmExLWJiZmEtNDBmMjMzOTQyN2E4IiwiY2xpZW50X2lkIjoiY3J5cHRvIiwic2NvcGUiOlsiYWxsIl19.uCsXNtrur5nYAsEN5p9QHV0gDy1z_IWi01izvbAumSw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://cryptogo-api.herokuapp.com/api/v1/cryptosThresholds/17",
+							"protocol": "https",
+							"host": [
+								"cryptogo-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cryptosThresholds",
+								"17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
