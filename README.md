@@ -1,31 +1,35 @@
 <img width="150" height="150" align="right" src="https://upload.wikimedia.org/wikipedia/pt/4/47/UFF_bras%C3%A3o.png">
 
-
-
 # Disciplina Desenvolvimento de Aplicações 2021/1
 
-## Tarefa 01: Definição e Implementação de Classes de Entidade
+## Entrega 2 - Projeto e Implementação de uma API REST CryptoGO
 
 ## TÉCNOLOGIAS UTILIZADAS
 
 - JAVA 8
 - JPA
-- SPRING BOOT 2.5.3
+- SPRING BOOT 2.2.6
 - MAVEN 3.6.1
 - IDE ECLIPSE
 - POSTGRESQL
+- POSTMAN
 
-### Descrição da Tarefa
+### Descrição do Projeto
 
 <p align="justify">
 
-- Modelo de Classes contendo as classes de entidade (com pelo menos 2*N classes de entidade, onde N é o número de integrantes do grupo).
-- A implementação das classes de entidades com JPA (código JAVA).
+- {Leo}
   
 </p>
 
 ### PRÉ REQUISITOS PARA RODAR ESSE PROJETO
 
-- É necessário criar um database `cryptoGO` no seu Postgresql.
+- Para rodar localmente é necessário criar um database `cryptoGO` no seu Postgresql.
+- Utilizar o Postman ou similiar. Nesse caso, temos o swagger porém ainda é necessário usar o postman para pegar *Accesstoken*  
 
-# EM CONSTRUÇÃO...
+### Para Utilizar API
+
+1. Primeiro deve ser criado um usuário para que possa ser posível utilizar os demais endpoints.
+2. Após a criação do usuário agora é possível acessar os demais endpoints.
+
+Obs: Ficará disponivel a collection do Postman com os testes que foram utilizados durante o desenvolvimento dessa API REST.
