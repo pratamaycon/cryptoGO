@@ -35,4 +35,4 @@
 [Link Swagger](https://cryptogo-api.herokuapp.com/swagger-ui.html#/)
 
 Obs: Ficará disponivel uma collection do postman com os testes que foram utilizados durante o desenvolvimento dessa API REST.
-A collection está numa pasta chamada postman bem na raiz do projeto
+A collection está numa pasta chamada postman bem na raiz do projeto.
