@@ -32,4 +32,6 @@
 1. Primeiro deve ser criado um usuário para que possa ser posível utilizar os demais endpoints.
 2. Após a criação do usuário agora é possível acessar os demais endpoints.
 
+[Link Swagger](https://cryptogo-api.herokuapp.com/swagger-ui.html#/)
+
 Obs: Ficará disponivel a collection do Postman com os testes que foram utilizados durante o desenvolvimento dessa API REST.
