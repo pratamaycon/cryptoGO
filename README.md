@@ -45,7 +45,7 @@ URL do endpoint que retorna uma lista de usuários:
 `https://cryptogo-api.herokuapp.com/api/v1/users`
 
 **GET**
-URL do endpoint que retorna um usuario /{logic}:
+URL do endpoint que retorna um usuario /{login}:
 
 `https://cryptogo-api.herokuapp.com/api/v1/users/admin`
 
@@ -55,17 +55,17 @@ URL do endpoint que cria um usuario:
 `https://cryptogo-api.herokuapp.com/api/v1/users`
 
 **PUT**
-URL do endpoint que atualiza um usuario:
+URL do endpoint que atualiza um usuario /{login}:
 
 `https://cryptogo-api.herokuapp.com/api/v1/users/admin`
 
 **PUT**
-URL do endpoint que altera senha:
+URL do endpoint que altera senha /{login}:
 
 `https://cryptogo-api.herokuapp.com/api/v1/users/3/senha`
 
 **DELET**
-URL do endpoint que deleta usuario:
+URL do endpoint que deleta usuario /{login}:
 
-`https://cryptogo-api.herokuapp.com/api/v1/users/3/senha`
+`https://cryptogo-api.herokuapp.com/api/v1/users/3`
 
