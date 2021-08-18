@@ -32,4 +32,40 @@
 1. Primeiro deve ser criado um usuário para que possa ser posível utilizar os demais endpoints.
 2. Após a criação do usuário agora é possível acessar os demais endpoints.
 
-Obs: Ficará disponivel a collection do Postman com os testes que foram utilizados durante o desenvolvimento dessa API REST.
+[Link Swagger](https://cryptogo-api.herokuapp.com/swagger-ui.html#/)
+
+Obs: Ficará disponivel uma collection do postman com os testes que foram utilizados durante o desenvolvimento dessa API REST.
+A collection está numa pasta chamada postman bem na raiz do projeto.
+
+### URLS DOS ENDPOINTS
+
+**GET**
+URL do endpoint que retorna uma lista de usuários:
+
+`https://cryptogo-api.herokuapp.com/api/v1/users`
+
+**GET**
+URL do endpoint que retorna um usuario /{login}:
+
+`https://cryptogo-api.herokuapp.com/api/v1/users/admin`
+
+**POST**
+URL do endpoint que cria um usuario:
+
+`https://cryptogo-api.herokuapp.com/api/v1/users`
+
+**PUT**
+URL do endpoint que atualiza um usuario /{login}:
+
+`https://cryptogo-api.herokuapp.com/api/v1/users/admin`
+
+**PUT**
+URL do endpoint que altera senha /{login}:
+
+`https://cryptogo-api.herokuapp.com/api/v1/users/3/senha`
+
+**DELET**
+URL do endpoint que deleta usuario /{login}:
+
+`https://cryptogo-api.herokuapp.com/api/v1/users/3`
+
