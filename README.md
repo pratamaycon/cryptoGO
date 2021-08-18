@@ -32,12 +32,26 @@
 1. Primeiro deve ser criado um usuário para que possa ser posível utilizar os demais endpoints.
 2. Após a criação do usuário agora é possível acessar os demais endpoints.
 
+[URL ENDPOINT](https://cryptogo-api.herokuapp.com/)
+
 [Link Swagger](https://cryptogo-api.herokuapp.com/swagger-ui.html#/)
 
 Obs: Ficará disponivel uma collection do postman com os testes que foram utilizados durante o desenvolvimento dessa API REST.
 A collection está numa pasta chamada postman bem na raiz do projeto.
 
-### URLS DOS ENDPOINTS
+### URLS DOS ENDPOINTS - Autenticação
+
+**POST**
+URL do endpoint access token:
+
+`https://cryptogo-api.herokuapp.com/oauth/token`
+
+**DELETE**
+URL do endpoint deslogar:
+
+`https://cryptogo-api.herokuapp.com/tokens/revoke`
+
+### URLS DOS ENDPOINTS - Usuário
 
 **GET**
 URL do endpoint que retorna uma lista de usuários:
@@ -64,8 +78,71 @@ URL do endpoint que altera senha /{login}:
 
 `https://cryptogo-api.herokuapp.com/api/v1/users/3/senha`
 
-**DELET**
+**DELETE**
 URL do endpoint que deleta usuario /{login}:
 
 `https://cryptogo-api.herokuapp.com/api/v1/users/3`
 
+### URLS DOS ENDPOINTS - CryptoTipo
+
+**GET**
+URL do endpoint que retorna uma lista paginada de CryptoTipo:
+
+`https://cryptogo-api.herokuapp.com/api/v1/cryptos?page=0&size=5`
+
+**GET**
+URL do endpoint que retorna um CryptoTipo /{1}:
+
+`https://cryptogo-api.herokuapp.com/api/v1/cryptos/1`
+
+**GET**
+URL do endpoint que retorna uma lista com as recomendações thresholds pos dia:
+
+`https://cryptogo-api.herokuapp.com/api/v1/recomendacao-aposDia/01/01/2021`
+
+**GET**
+URL do endpoint que retorna uma lista com as recomendações thresholds antes do dia:
+
+`https://cryptogo-api.herokuapp.com/api/v1/recomendacao-antesDia/01/01/2021`
+
+**POST**
+URL do endpoint que cria uma CryptoTipo:
+
+`https://cryptogo-api.herokuapp.com/api/v1/cryptos`
+
+**PUT**
+URL do endpoint que altera uma CryptoTipo /{3}:
+
+`https://cryptogo-api.herokuapp.com/api/v1/cryptos/3`
+
+**DELETE**
+URL do endpoint que deleta usuario /{2}:
+
+`https://cryptogo-api.herokuapp.com/api/v1/cryptos/2`
+
+### URLS DOS ENDPOINTS - CryptoThreshold
+
+**GET**
+URL do endpoint que retorna uma lista paginada de CryptoThreshold:
+
+`https://cryptogo-api.herokuapp.com/api/v1/cryptosThresholds?page=0&size=5`
+
+**GET**
+URL do endpoint que retorna um CryptoThreshold /{4}:
+
+`https://cryptogo-api.herokuapp.com/api/v1/cryptosThresholds/4`
+
+**POST**
+URL do endpoint que cria uma CryptoThreshold:
+
+`https://cryptogo-api.herokuapp.com/api/v1/cryptosThresholds`
+
+**PUT**
+URL do endpoint que altera uma CryptoThreshold /{14}:
+
+`https://cryptogo-api.herokuapp.com/api/v1/cryptosThresholds/14`
+
+**DELETE**
+URL do endpoint que deleta CryptoThreshold /{17}:
+
+`https://cryptogo-api.herokuapp.com/api/v1/cryptosThresholds/17`
