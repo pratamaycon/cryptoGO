@@ -1,5 +1,8 @@
 package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.api.resource;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.exception.EntidadeNaoEncontradaException;
 import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.model.CryptoTipos;
+import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.repository.recomendacoes.RecomendacaoThresholdDTO;
 import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.service.CryptoTipoService;
 
 import io.swagger.annotations.Api;
@@ -26,7 +30,7 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/api/")
 @Api(value = "Resource CryptoTipos")
 public class CryptoTiposResource {
-
+	
 	@Autowired
 	private CryptoTipoService service;
 
@@ -35,6 +39,28 @@ public class CryptoTiposResource {
 	@ApiOperation(value = "Retorna uma lista paginada com as crypto")
 	public Page<CryptoTipos> buscarTodos(@RequestParam("page") int page, @RequestParam("size") int size) {
 		return service.paginacao(page, size);
+	}
+	
+	@GetMapping("v1/recomendacao-aposDia/{dia}/{mes}/{ano}")
+	@ResponseStatus(HttpStatus.OK)
+	@ApiOperation(value = "Retorna uma consulta que filtra os thresholds após a data informada")
+	public List<RecomendacaoThresholdDTO> aposDia(
+			@PathVariable("dia") Integer dia, 
+			@PathVariable("mes") Integer mes, 
+			@PathVariable("ano") Integer ano) {
+		LocalDate data = LocalDate.of(ano, mes, dia);
+		return service.recomendacaoThresholdAposDia(data);
+	}
+	
+	@GetMapping("v1/recomendacao-antesDia/{dia}/{mes}/{ano}")
+	@ResponseStatus(HttpStatus.OK)
+	@ApiOperation(value = "Retorna uma consulta que filtra os thresholds antes da data informada")
+	public List<RecomendacaoThresholdDTO> antesDia(
+			@PathVariable("dia") Integer dia, 
+			@PathVariable("mes") Integer mes, 
+			@PathVariable("ano") Integer ano) {
+		LocalDate data = LocalDate.of(ano, mes, dia);
+		return service.recomendacaoThresholdAntesDia(data);
 	}
 	
 	@GetMapping(value = { "v1/cryptos/{codigo}" })

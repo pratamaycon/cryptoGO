@@ -1,5 +1,8 @@
 package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.service;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.BeanUtils;
@@ -11,12 +14,17 @@ import org.springframework.stereotype.Service;
 import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.exception.EntidadeNaoEncontradaException;
 import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.model.CryptoTipos;
 import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.repository.CryptoTiposRepository;
+import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.repository.recomendacoes.CryptoTransactionsRepository;
+import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.repository.recomendacoes.RecomendacaoThresholdDTO;
 
 @Service
 public class CryptoTipoService {
 
 	@Autowired
 	private CryptoTiposRepository repository;
+	
+	@Autowired
+	private CryptoTransactionsRepository transactionsRepository;
 	
 	private static final String MSG_ENTIDADE_NAO_ENCONTRADA 
 	= "A entidade Crypto de código %d não foi encontrada";
@@ -30,6 +38,14 @@ public class CryptoTipoService {
 	 */
 	public Page<CryptoTipos> paginacao(int page, int size) {
 		return repository.findAll(PageRequest.of(page, size));
+	}
+	
+	public List<RecomendacaoThresholdDTO> recomendacaoThresholdAposDia(LocalDate data) {
+		return transactionsRepository.findByDataAfter(data);
+	}
+	
+	public List<RecomendacaoThresholdDTO> recomendacaoThresholdAntesDia(LocalDate data) {
+		return transactionsRepository.findByDataBefore(data);
 	}
 	
 	@Transactional
@@ -69,5 +85,4 @@ public class CryptoTipoService {
 			.orElseThrow(() -> 
 			new EntidadeNaoEncontradaException(String.format(MSG_ENTIDADE_NAO_ENCONTRADA, codigo)));
 	}
-
 }

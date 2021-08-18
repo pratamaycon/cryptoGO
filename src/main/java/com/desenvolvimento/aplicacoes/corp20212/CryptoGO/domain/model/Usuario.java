@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario implements UserDetails {
+public class Usuario implements UserDetails { 
 
 	private static final long serialVersionUID = 1L;
 
