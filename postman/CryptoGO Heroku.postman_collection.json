@@ -178,6 +178,52 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Recomendação Threshold Antes Dia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/recomendacao-aposDia/01/01/2021",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"recomendacao-aposDia",
+								"01",
+								"01",
+								"2021"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recomendação Threshold Apos Dia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/recomendacao-antesDia/20/01/2021",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"recomendacao-antesDia",
+								"20",
+								"01",
+								"2021"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
