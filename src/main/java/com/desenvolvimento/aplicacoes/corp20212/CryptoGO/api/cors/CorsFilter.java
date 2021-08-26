@@ -45,10 +45,12 @@ public class CorsFilter implements Filter {
 	
 	@Override
 	public void destroy() {
+		Filter.super.destroy();
 	}
-
+	
 	@Override
-	public void init(FilterConfig arg0) throws ServletException {
+	public void init(FilterConfig filterConfig) throws ServletException {
+		Filter.super.init(filterConfig);
 	}
 
 }
