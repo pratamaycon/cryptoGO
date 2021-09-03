@@ -5,6 +5,8 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,17 @@ public class UsuarioService {
 	
 	private static final String MSG_USUARIO_EM_USO
 	= "Já existe um usuário cadastrado com o username %s";
+	
+	/**
+	 * Lista todas as entidades CryptoTipos com paginação *
+	 * 
+	 * @param page
+	 * @param size
+	 * @return retorna uma lista de entidades com paginação
+	 */
+	public Page<Usuario> paginacao(int page, int size) {
+		return repository.findAll(PageRequest.of(page, size));
+	}
 
 	@Transactional
 	public Usuario salvar(Usuario usuario) {

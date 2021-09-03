@@ -1,11 +1,10 @@
 package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.api.resource;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.api.model.input.SenhaInput;
 import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.exception.EntidadeNaoEncontradaException;
 import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.model.Usuario;
-import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.repository.UsuarioRepository;
 import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.service.UsuarioService;
 
 import io.swagger.annotations.Api;
@@ -35,14 +33,11 @@ public class UsuarioResource {
 	@Autowired
 	private UsuarioService service;
 
-	@Autowired
-	private UsuarioRepository repository;
-
 	@GetMapping(value = { "v1/users" })
-	@ApiOperation(value = "Retorna uma lista de Usuários", response = Usuario[].class)
+	@ApiOperation(value = "Retorna uma lista paginada de Usuários", response = Usuario[].class)
 	@ResponseStatus(HttpStatus.OK)
-	public List<Usuario> buscarTodos() {
-		return repository.findAll();
+	public Page<Usuario> buscarTodos(int page, int size) {
+		return service.paginacao(page, size);
 	}
 
 	@GetMapping(value = { "v1/users/{login}" })
