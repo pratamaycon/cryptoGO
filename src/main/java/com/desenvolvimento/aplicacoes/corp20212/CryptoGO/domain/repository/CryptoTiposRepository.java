@@ -11,5 +11,7 @@ import com.desenvolvimento.aplicacoes.corp20212.CryptoGO.domain.model.CryptoTipo
 public interface CryptoTiposRepository extends JpaRepository<CryptoTipos, Integer> {
 	
 	Optional<CryptoTipos> findByCodigo(Long codigo);
+	
+	Optional<CryptoTipos> findByNome(String nome);
 
 }

@@ -28,6 +28,9 @@ public class CryptoTipoService {
 	
 	private static final String MSG_ENTIDADE_NAO_ENCONTRADA 
 	= "A entidade Crypto de código %d não foi encontrada";
+	
+	private static final String MSG_ENTIDADE_NAO_ENCONTRADA_NOME 
+	= "A entidade Crypto de nome %s não foi encontrada";
 
 	/**
 	 * Lista todas as entidades CryptoTipos com paginação *
@@ -84,5 +87,11 @@ public class CryptoTipoService {
 		return repository.findByCodigo(codigo)
 			.orElseThrow(() -> 
 			new EntidadeNaoEncontradaException(String.format(MSG_ENTIDADE_NAO_ENCONTRADA, codigo)));
+	}
+	
+	public CryptoTipos buscarOuFalharPorNome(String codigo) {
+		return repository.findByNome(codigo)
+			.orElseThrow(() -> 
+			new EntidadeNaoEncontradaException(String.format(MSG_ENTIDADE_NAO_ENCONTRADA_NOME, codigo)));
 	}
 }

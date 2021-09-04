@@ -63,10 +63,10 @@ public class CryptoTiposResource {
 		return service.recomendacaoThresholdAntesDia(data);
 	}
 	
-	@GetMapping(value = { "v1/cryptos/{codigo}" })
+	@GetMapping(value = { "v1/cryptos/{nome}" })
 	@ApiOperation(value = "Retorna uma crypto")
-	public ResponseEntity<?> buscarPeloId(@PathVariable("codigo") Long codigo) {
-		CryptoTipos crypto = service.buscarOuFalhar(codigo);
+	public ResponseEntity<?> buscarPeloId(@PathVariable("nome") String nome) {
+		CryptoTipos crypto = service.buscarOuFalharPorNome(nome);
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(crypto);			
 		} catch (EntidadeNaoEncontradaException e) {
