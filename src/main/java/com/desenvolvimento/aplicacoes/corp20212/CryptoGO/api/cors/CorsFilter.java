@@ -1,6 +1,8 @@
 package com.desenvolvimento.aplicacoes.corp20212.CryptoGO.api.cors;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -20,6 +22,8 @@ import org.springframework.stereotype.Component;
 public class CorsFilter implements Filter {
 
 	private String originPermitida = "https://grypto-go-ui.web.app";
+	
+	List<String> list = Arrays.asList("https://grypto-go-ui.web.app", "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", "http://localhost:4200");
 	
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
