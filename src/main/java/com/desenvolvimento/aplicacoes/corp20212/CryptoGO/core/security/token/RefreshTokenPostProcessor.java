@@ -46,6 +46,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 		private void adicionarRefreshTokeNoCookie(String refreshToken, HttpServletRequest req, HttpServletResponse res) {
 			Cookie refreshTokenCookie = new Cookie("refreshToken", refreshToken);
+			refreshTokenCookie.setHttpOnly(true);
 			refreshTokenCookie.setSecure(true);
 			refreshTokenCookie.setPath(req.getContextPath() + "/oauth/token");
 			refreshTokenCookie.setMaxAge(2592000);
