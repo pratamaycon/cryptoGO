@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
 
-	private String originPermitida = "https://grypto-go-ui.web.app/"; // TODO: Configurar para diferentes ambientes
+	private String originPermitida = "https://grypto-go-ui.web.app.com/";
 	
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
